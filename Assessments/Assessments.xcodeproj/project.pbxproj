@@ -18,6 +18,7 @@
 		A388E1D723D20BF90088658C /* ContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A388E1D623D20BF90088658C /* ContactViewModel.swift */; };
 		A388E1D923D20C0C0088658C /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = A388E1D823D20C0C0088658C /* Contact.swift */; };
 		A388E1DB23D20C2D0088658C /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A388E1DA23D20C2D0088658C /* UIView+Ext.swift */; };
+		A388E1DE23D2103D0088658C /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = A388E1DD23D2103D0088658C /* data.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		A388E1D623D20BF90088658C /* ContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewModel.swift; sourceTree = "<group>"; };
 		A388E1D823D20C0C0088658C /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		A388E1DA23D20C2D0088658C /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		A388E1DD23D2103D0088658C /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = data.json; path = Assessments/data.json; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 		A388E19C23D20AC70088658C /* Assessments */ = {
 			isa = PBXGroup;
 			children = (
+				A388E1DC23D210260088658C /* JsonFile */,
 				A388E1D123D20B670088658C /* AppConstant */,
 				A388E1D023D20B5D0088658C /* Extension */,
 				A388E1CF23D20B550088658C /* View */,
@@ -175,6 +178,14 @@
 				A388E1D223D20B780088658C /* AppConstant.swift */,
 			);
 			path = AppConstant;
+			sourceTree = "<group>";
+		};
+		A388E1DC23D210260088658C /* JsonFile */ = {
+			isa = PBXGroup;
+			children = (
+				A388E1DD23D2103D0088658C /* data.json */,
+			);
+			path = JsonFile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A388E1AA23D20AC80088658C /* LaunchScreen.storyboard in Resources */,
+				A388E1DE23D2103D0088658C /* data.json in Resources */,
 				A388E1A723D20AC80088658C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
