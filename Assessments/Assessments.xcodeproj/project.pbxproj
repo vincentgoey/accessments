@@ -19,6 +19,7 @@
 		A388E1D923D20C0C0088658C /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = A388E1D823D20C0C0088658C /* Contact.swift */; };
 		A388E1DB23D20C2D0088658C /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A388E1DA23D20C2D0088658C /* UIView+Ext.swift */; };
 		A388E1DE23D2103D0088658C /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = A388E1DD23D2103D0088658C /* data.json */; };
+		A388E1E123D215680088658C /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A388E1E023D215680088658C /* ContactCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		A388E1D823D20C0C0088658C /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		A388E1DA23D20C2D0088658C /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		A388E1DD23D2103D0088658C /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = data.json; path = Assessments/data.json; sourceTree = SOURCE_ROOT; };
+		A388E1E023D215680088658C /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 		A388E1CF23D20B550088658C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A388E1DF23D2153D0088658C /* Cell */,
 				A388E1D423D20BCE0088658C /* ContactsVC.swift */,
 			);
 			path = View;
@@ -186,6 +189,14 @@
 				A388E1DD23D2103D0088658C /* data.json */,
 			);
 			path = JsonFile;
+			sourceTree = "<group>";
+		};
+		A388E1DF23D2153D0088658C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				A388E1E023D215680088658C /* ContactCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,6 +330,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A388E1E123D215680088658C /* ContactCell.swift in Sources */,
 				A388E1D923D20C0C0088658C /* Contact.swift in Sources */,
 				A388E19E23D20AC70088658C /* AppDelegate.swift in Sources */,
 				A388E1D323D20B780088658C /* AppConstant.swift in Sources */,
