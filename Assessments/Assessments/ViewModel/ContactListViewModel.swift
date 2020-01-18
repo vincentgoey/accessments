@@ -59,7 +59,7 @@ struct ContactListViewModel {
         }
     }
     
-    func numberOfRows(_ section: Int) -> Int {
+    func numberOfRows() -> Int {
         return self.contactsList.count
     }
     

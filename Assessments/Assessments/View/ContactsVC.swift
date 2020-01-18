@@ -27,7 +27,7 @@ class ContactsVC: UIViewController {
     
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
-            self.contactListViewModels.retrieveData(contacts: self.fetchData())
+            self.contactListViewModels.retrieveData(contacts: self.contactListViewModels.fetchData())
             self.tableView.reloadData()
             refreshControl.endRefreshing()
         }
@@ -68,14 +68,15 @@ class ContactsVC: UIViewController {
     }
     
     func setupData() {
-        self.contactListViewModels.retrieveData(contacts: fetchData())
+        //read lastest data
+        self.contactListViewModels.retrieveData(contacts: self.contactListViewModels.fetchData())
     }
 
 }
 
 extension ContactsVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.contactListViewModels.numberOfRows(section)
+        return self.contactListViewModels.numberOfRows()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -94,17 +95,6 @@ extension ContactsVC: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension ContactsVC {
-    
-    func fetchData() -> [Contact]  {
-        if let path = Bundle.main.path(forResource: "data", ofType: "json") {
-            do {
-                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-                let contactlists = try JSONDecoder().decode([Contact].self, from: data)
-                return contactlists
-            } catch {}
-        }
-        return []
-    }
     
     @objc func addNewContact(){
         let vc = ContactDetailsVC()
