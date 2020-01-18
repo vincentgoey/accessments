@@ -86,6 +86,9 @@ extension ContactsVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.deselectRow(at: indexPath, animated: true)
+        let vc = ContactDetailsVC()
+        vc.contactDetails = self.contactViewModels.modelAt(indexPath.row)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -105,7 +108,9 @@ extension ContactsVC {
     }
     
     @objc func addNewContact(){
-        print("Tapped")
+        let vc = ContactDetailsVC()
+        vc.contactDetails = nil
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }
