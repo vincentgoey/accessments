@@ -87,7 +87,8 @@ extension ContactsVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.deselectRow(at: indexPath, animated: true)
         let vc = ContactDetailsVC()
-        vc.contactDetails.contact = self.contactListViewModels.modelAt(indexPath.row)
+        vc.contactDetails.contact   = self.contactListViewModels.modelAt(indexPath.row)
+        vc.addContactDelegate       = self
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
@@ -100,16 +101,15 @@ extension ContactsVC {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
                 let contactlists = try JSONDecoder().decode([Contact].self, from: data)
                 return contactlists
-            } catch {
-                // handle error
-            }
+            } catch {}
         }
         return []
     }
     
     @objc func addNewContact(){
         let vc = ContactDetailsVC()
-        vc.contactDetails.contact = nil
+        vc.contactDetails.contact   = nil
+        vc.addContactDelegate       = self
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

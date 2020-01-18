@@ -229,8 +229,8 @@ extension ContactDetailsVC {
     
     func validatePhone(enteredPhone: String) -> Bool {
         var returnValue = true
-        let phoneFormat = #"[A-Za-z!@#$%^&*,.?":{}[\]|\/<>~=_]"# //Regex detects letters
-        
+        let phoneFormat = #"[A-Za-z!@$%^&,.?~_|><;:\/\]\[\{\}\"\’\“\”\']"# //Regex detects letters and special character, only accept numbering and +-()*#
+
         do {
             let regex = try NSRegularExpression(pattern: phoneFormat)
             let nsString = enteredPhone as NSString
