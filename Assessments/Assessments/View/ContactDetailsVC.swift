@@ -16,11 +16,12 @@ class ContactDetailsVC: UIViewController {
     @IBOutlet weak var emailTF      : UITextField!
     @IBOutlet weak var phoneTF      : UITextField!
     var keyBoardNeedLayout          : Bool = true
+    var addContactDelegate          : addContactDelegate?
     
     let cancelButtonText    = "Cancel"
     let saveButtonText      = "Save"
     
-    var contactDetails:Contact?
+    var contactDetails = ContactViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,14 +57,14 @@ class ContactDetailsVC: UIViewController {
         self.phoneTF.delegate       = self
         
         //Binding is not use in this case because auto update is not allow and user have to press save button to save.
-        if contactDetails != nil {
-            self.firstNameTF.text   = contactDetails?.firstName
-            self.lastNameTF.text    = contactDetails?.lastName
-            self.emailTF.text       = contactDetails?.email
-            self.phoneTF.text       = contactDetails?.phone
+        if contactDetails.contact != nil {
+            self.firstNameTF.text   = contactDetails.contact.firstName
+            self.lastNameTF.text    = contactDetails.contact.lastName
+            self.emailTF.text       = contactDetails.contact.email
+            self.phoneTF.text       = contactDetails.contact.phone
         } else {
             // if contactDetails = nil, create new model
-            contactDetails = Contact(id: nil, firstName: "", lastName: "", email: nil, phone: nil)
+            contactDetails.contact = Contact(id: nil, firstName: "", lastName: "", email: nil, phone: nil)
         }
     }
 
@@ -192,11 +193,14 @@ extension ContactDetailsVC {
             }
         }
         
-        self.contactDetails?.firstName  = self.firstNameTF.text!
-        self.contactDetails?.lastName   = self.lastNameTF.text!
-        self.contactDetails?.email      = self.emailTF.text ?? nil
-        self.contactDetails?.phone      = self.phoneTF.text ?? nil
+        self.contactDetails.contact.firstName  = self.firstNameTF.text!
+        self.contactDetails.contact.lastName   = self.lastNameTF.text!
+        self.contactDetails.contact.email      = self.emailTF.text ?? nil
+        self.contactDetails.contact.phone      = self.phoneTF.text ?? nil
         
+        if let delegate = self.addContactDelegate {
+            delegate.addContact(contact: self.contactDetails.contact)
+        }
         self.navigationController?.popViewController(animated: true)
     }
     

@@ -11,7 +11,7 @@ import UIKit
 class ContactsVC: UIViewController {
     
     var tableView = UITableView()
-    private var contactViewModels = ContactViewModel()
+    private var contactListViewModels = ContactListViewModel()
     
     struct Cells {
         static let contactCell = "ContactCell"
@@ -27,7 +27,7 @@ class ContactsVC: UIViewController {
     
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
-            self.contactViewModels.retrieveData(contacts: self.fetchData())
+            self.contactListViewModels.retrieveData(contacts: self.fetchData())
             self.tableView.reloadData()
             refreshControl.endRefreshing()
         }
@@ -68,26 +68,26 @@ class ContactsVC: UIViewController {
     }
     
     func setupData() {
-        self.contactViewModels.retrieveData(contacts: fetchData())
+        self.contactListViewModels.retrieveData(contacts: fetchData())
     }
 
 }
 
 extension ContactsVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.contactViewModels.numberOfRows(section)
+        return self.contactListViewModels.numberOfRows(section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Cells.contactCell) as! ContactCell
-        cell.contactModel = self.contactViewModels.modelAt(indexPath.row)
+        cell.contactModel = self.contactListViewModels.modelAt(indexPath.row)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.deselectRow(at: indexPath, animated: true)
         let vc = ContactDetailsVC()
-        vc.contactDetails = self.contactViewModels.modelAt(indexPath.row)
+        vc.contactDetails.contact = self.contactListViewModels.modelAt(indexPath.row)
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
@@ -109,8 +109,18 @@ extension ContactsVC {
     
     @objc func addNewContact(){
         let vc = ContactDetailsVC()
-        vc.contactDetails = nil
+        vc.contactDetails.contact = nil
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+}
+
+extension ContactsVC: addContactDelegate {
+    
+    func addContact(contact: Contact) {
+        self.contactListViewModels.saveContact(contact: contact)
+        self.contactListViewModels.updateData()
+        self.tableView.reloadData()
     }
     
 }

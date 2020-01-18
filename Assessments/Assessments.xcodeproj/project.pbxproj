@@ -15,7 +15,7 @@
 		A388E1C023D20AC80088658C /* AssessmentsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A388E1BF23D20AC80088658C /* AssessmentsUITests.swift */; };
 		A388E1D323D20B780088658C /* AppConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A388E1D223D20B780088658C /* AppConstant.swift */; };
 		A388E1D523D20BCE0088658C /* ContactsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A388E1D423D20BCE0088658C /* ContactsVC.swift */; };
-		A388E1D723D20BF90088658C /* ContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A388E1D623D20BF90088658C /* ContactViewModel.swift */; };
+		A388E1D723D20BF90088658C /* ContactListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A388E1D623D20BF90088658C /* ContactListViewModel.swift */; };
 		A388E1D923D20C0C0088658C /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = A388E1D823D20C0C0088658C /* Contact.swift */; };
 		A388E1DB23D20C2D0088658C /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A388E1DA23D20C2D0088658C /* UIView+Ext.swift */; };
 		A388E1DE23D2103D0088658C /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = A388E1DD23D2103D0088658C /* data.json */; };
@@ -23,6 +23,7 @@
 		A388E1E323D21FC00088658C /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A388E1E223D21FC00088658C /* ColorExtension.swift */; };
 		A388E1E623D225330088658C /* ContactDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A388E1E423D225330088658C /* ContactDetailsVC.xib */; };
 		A388E1E723D225330088658C /* ContactDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A388E1E523D225330088658C /* ContactDetailsVC.swift */; };
+		A388E1EB23D32A990088658C /* ContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A388E1EA23D32A990088658C /* ContactViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,7 +58,7 @@
 		A388E1C123D20AC80088658C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A388E1D223D20B780088658C /* AppConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstant.swift; sourceTree = "<group>"; };
 		A388E1D423D20BCE0088658C /* ContactsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsVC.swift; sourceTree = "<group>"; };
-		A388E1D623D20BF90088658C /* ContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewModel.swift; sourceTree = "<group>"; };
+		A388E1D623D20BF90088658C /* ContactListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListViewModel.swift; sourceTree = "<group>"; };
 		A388E1D823D20C0C0088658C /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		A388E1DA23D20C2D0088658C /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		A388E1DD23D2103D0088658C /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = data.json; path = Assessments/data.json; sourceTree = SOURCE_ROOT; };
@@ -65,6 +66,7 @@
 		A388E1E223D21FC00088658C /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		A388E1E423D225330088658C /* ContactDetailsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactDetailsVC.xib; sourceTree = "<group>"; };
 		A388E1E523D225330088658C /* ContactDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactDetailsVC.swift; sourceTree = "<group>"; };
+		A388E1EA23D32A990088658C /* ContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,7 +161,8 @@
 		A388E1CE23D20B460088658C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				A388E1D623D20BF90088658C /* ContactViewModel.swift */,
+				A388E1D623D20BF90088658C /* ContactListViewModel.swift */,
+				A388E1EA23D32A990088658C /* ContactViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -341,12 +344,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A388E1E723D225330088658C /* ContactDetailsVC.swift in Sources */,
+				A388E1EB23D32A990088658C /* ContactViewModel.swift in Sources */,
 				A388E1E123D215680088658C /* ContactCell.swift in Sources */,
 				A388E1D923D20C0C0088658C /* Contact.swift in Sources */,
 				A388E19E23D20AC70088658C /* AppDelegate.swift in Sources */,
 				A388E1E323D21FC00088658C /* ColorExtension.swift in Sources */,
 				A388E1D323D20B780088658C /* AppConstant.swift in Sources */,
-				A388E1D723D20BF90088658C /* ContactViewModel.swift in Sources */,
+				A388E1D723D20BF90088658C /* ContactListViewModel.swift in Sources */,
 				A388E1DB23D20C2D0088658C /* UIView+Ext.swift in Sources */,
 				A388E1A023D20AC70088658C /* SceneDelegate.swift in Sources */,
 				A388E1D523D20BCE0088658C /* ContactsVC.swift in Sources */,
